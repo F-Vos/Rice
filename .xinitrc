@@ -1,3 +1,6 @@
 #!/bin/sh
-sh ~/.scripts/xsetloop.sh &
+
+sh ~/.scripts/bar &
+sh ~/.scripts/screen_order &
+
 exec dwm
