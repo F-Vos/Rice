@@ -5,26 +5,15 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-
+#!/bin/bash
+export PS1="\[\033[38;5;8m\]\A\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;243m\]-\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;223m\]\u@\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;3m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;4m\]\\$ \[$(tput sgr0)\]"
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
-
-
-
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
 fi
 
+
 # Put your fun stuff here.
-
-
-stty -ixon # Disable ctrl-s and ctrl-q.
-HISTSIZE= HISTFILESIZE= # Infinite history.
-
-#export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-
-
-PS1='\[\e[0m\]\A \[\e[0;1m\][\[\e[0;1m\]\u\[\e[0;1m\]@\[\e[0;1m\]\H\[\e[0m\]: \[\e[0;1;38;5;27m\]\W\[\e[0;1m\]]\[\e[0;2m\]$ \[\e[0m\]'
-

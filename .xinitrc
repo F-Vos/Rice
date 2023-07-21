@@ -1,6 +1,8 @@
 #!/bin/sh
 
 sh ~/.scripts/bar &
-sh ~/.scripts/screen_order &
+sh ~/.scripts/wallpaper &
+xcompmgr -c &
 
-exec dwm
+exec dbus-launch --sh-syntax --exit-with-session dwm
+

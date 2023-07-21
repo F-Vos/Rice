@@ -1,0 +1,4 @@
+#!/bin/sh
+# place in /usr/local/bin
+scrot -f "/tmp/clipboard.png" -o -s -e 'xclip -selection clipboard -t image/png -i $f'
+
